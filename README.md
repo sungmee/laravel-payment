@@ -4,15 +4,15 @@
 
 LaraPay 维护一个数据库表 payments，单纯记录支付历史和状态。实际使用中，需要其它与应用相关的数据，可另设数据表，并通过中间表与 payments 关联的形式进行维护。
 
-扩展支付平台，只需采用 PSR-4 规则，并将命名空间设置如 `Sungmee\LaraPay\Platforms\Example`，并继承基础类 Base `Sungmee\LaraPay\Base` 和接口 `Sungmee\LaraPay\PlatformInterface` 即可，具体请参考 Example 示例。
+扩展支付平台，只需采用 PSR-4 规则，并将命名空间设置如 `Sungmee\LaraPay\Platforms\Example`，并继承基础类 Base `Sungmee\LaraPay\Base` 和接口 `Sungmee\LaraPay\PlatformInterface` 即可，具体请参考 Example 示例。
 
 ## 扩展包安装使用
 
 ### 安装
 
-在项目根目录的 composer.json 文件 `require` 中加入 `"Sungmee/laravel-payment": "dev-master",`，然后命令行运行 `composer update`。
+在项目根目录的 composer.json 文件 `require` 中加入 `"Sungmee/laravel-payment": "dev-master",`，然后命令行运行 `composer update`。
 
-继续在命令行运行 php artisan migrate 进行数据库迁移。
+继续在命令行运行 php artisan migrate 进行数据库迁移。
 
 在 .env 中加入实际支付验签数据：
 
@@ -38,7 +38,7 @@ LaraPay 维护一个数据库表 payments，单纯记录支付历史和状态。
 
 更多请参考 config/payment.php
 
-### 支付与查询
+### 支付与查询
 
 ```php
 use Sungmee\LaraPay\Facade as Pay;
