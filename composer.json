@@ -1,0 +1,37 @@
+{
+    "name": "sungmee/laravel-payment",
+    "description": "简称『LaraPay』是为 Laravel 量身定制的 第三方支付 扩展包，可根据第三方支付平台提供的 API 接口，无限扩展本包支持的平台。",
+    "keywords": ["packages", "laravel", "payment"],
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://github.com/sungmee/laravel-payment",
+    "time": "2018-02-05 18:28:51",
+    "authors": [
+        {
+            "name": "SUNGMEE",
+            "email": "mo@lxooo.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "illuminate/support": ">=4.0",
+        "ixudra/curl": "6.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sungmee\\LaraPay\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sungmee\\LaraPay\\ServiceProvider"
+            ],
+            "aliases": {
+                "Pay": "Sungmee\\LaraPay\\Facade"
+            }
+        }
+    }
+}
