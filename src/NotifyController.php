@@ -10,9 +10,9 @@ class NotifyController extends Controller
     /**
      * 第三方平台支付实例。
      *
-     * @var \Sungmee\LaraPay\Platforms\Platform
+     * @var \Sungmee\LaraPay\GatewayS\Example
      */
-    protected $platform;
+    protected $gateway;
 
     /**
      * 用户支付成功后，同步跳转页面。
@@ -28,7 +28,7 @@ class NotifyController extends Controller
      */
     public function __construct()
     {
-        $this->platform   = new Pay();
+        $this->gateway    = new Pay();
         $this->redirectTo = config('pay.redirectTo');
     }
 
@@ -40,7 +40,7 @@ class NotifyController extends Controller
      */
     public function offlineNotify(Request $request)
     {
-        return $this->answer($this->platform->offlineNotify($request));
+        return $this->answer($this->gateway->offlineNotify($request));
     }
 
     /**
@@ -51,7 +51,7 @@ class NotifyController extends Controller
      */
     public function pageNotify(Request $request)
     {
-        return $this->answer($this->platform->pageNotify($request), false);
+        return $this->answer($this->gateway->pageNotify($request), false);
     }
 
     /**

@@ -6,14 +6,14 @@ class Pay
 {
     public function __construct()
     {
-		$platform = config('payment.platform');
-		$platform = "Platforms\\$platform";
-		return new $platform;
+		$gateway = config('payment.gateway');
+		$gateway = "Gateways\\$gateway";
+		return new $gateway;
     }
 
 	public function __call($name, $args) {
         $name = studly_case($name);
-        $name = "Platforms\\$name\\$name";
+        $name = "Gateways\\$name\\$name";
         return new $name($args[0]);
     }
 }

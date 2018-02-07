@@ -4,10 +4,10 @@ $appUrl = env('APP_URL');
 
 return [
 	// 默认支付平台
-	'platform' => env('PAY_PLATFORM', 'example'),
+	'gateway' => env('PAY_GATEWAY', 'example'),
 
 	// 支付平台商户数据
-	'platforms' => [
+	'gateways' => [
 		'example' => []
 	],
 

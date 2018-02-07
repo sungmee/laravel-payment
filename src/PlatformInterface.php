@@ -10,7 +10,7 @@
  */
 namespace Sungmee\LaraPay;
 
-interface PlatformInterface
+interface GatewayInterface
 {
     /**
      * 第三方平台异步通知。

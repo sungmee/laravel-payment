@@ -1,10 +1,10 @@
 # Laravel Payment
 
-简称『LaraPay』是为 Laravel 量身定制的 第三方支付 扩展包，可根据第三方支付平台提供的 API 接口，无限扩展本包支持的平台。
+简称『LaraPay』是为 Laravel 量身定制的 第三方支付 扩展包，可根据第三方支付平台提供的 API 接口，无限扩展本包支持的平台。特别适合国产三四方支付平台。
 
 LaraPay 维护一个数据库表 payments，单纯记录支付历史和状态。实际使用中，需要其它与应用相关的数据，可另设数据表，并通过中间表与 payments 关联的形式进行维护。
 
-扩展支付平台，只需采用 PSR-4 规则，并将命名空间设置如 `Sungmee\LaraPay\Platforms\Example`，并继承基础类 Base `Sungmee\LaraPay\Base` 和接口 `Sungmee\LaraPay\PlatformInterface` 即可，具体请参考 Example 示例。
+扩展支付平台，只需采用 PSR-4 规则，并将命名空间设置如 `Sungmee\LaraPay\Gateways\Example`，并继承基础类 Base `Sungmee\LaraPay\Base` 和接口 `Sungmee\LaraPay\GatewayInterface` 即可，具体请参考 Example 示例。
 
 ## 扩展包安装使用
 
@@ -18,10 +18,10 @@ LaraPay 维护一个数据库表 payments，单纯记录支付历史和状态。
 
 ```php
 // 默认支付平台
-'platform' => env('PAY_PLATFORM', 'example'),
+'gateway' => env('PAY_GATEWAY', 'example'),
 
 // 支付平台商户数据
-'platforms' => [
+'gateways' => [
     'example' => []
 ],
 
@@ -72,10 +72,10 @@ Pay::query($order_no);
 use Sungmee\LaraPay\Pay;
 
 $pay = new Pay;
-$platform = $pay->Example();
+$gateway = $pay->Example();
 
-$platform->bankPay();
-$platform->unionPay();
-$platform->scanPay();
+$gateway->bankPay();
+$gateway->unionPay();
+$gateway->scanPay();
 ...
 ```

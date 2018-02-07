@@ -149,9 +149,9 @@ abstract class Base
 	public function store($params)
 	{
 		$payment = new Payment;
-		$payment->user_id  = \Auth()->user()->id;
-		$payment->platform = config('payment.platform');
-		$payment->amount   = $params['amount'];
+		$payment->user_id = \Auth()->user()->id;
+		$payment->gateway = config('payment.gateway');
+		$payment->amount  = $params['amount'];
 
 		unset($params['amount']);
 

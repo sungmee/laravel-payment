@@ -23,7 +23,7 @@ class PaymentsTable extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->string('platform', 28);
+            $table->string('gateway', 28);
             $table->integer('amount');
             $table->enum('status', ['Pending', 'Void', 'Refunded', 'Capture', 'Success', 'Fail'])->nullable();
             $table->json('metas')->nullable();
