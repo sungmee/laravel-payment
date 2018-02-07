@@ -170,7 +170,7 @@ abstract class Base
 	public function update(Payment $payment, $data)
 	{
 		foreach ($data as $column => $value) {
-			if ($k == 'metas') {
+			if ($column == 'metas') {
 				$metas = $payment->metas;
 				foreach ($value as $k => $v) {
 					$metas[$k] = $v;
