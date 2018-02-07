@@ -64,7 +64,7 @@ Pay::query($order_no);
 
 已使用路由 routers/payment.php 和 通知控制器 NotifyController.php，如需改写业务逻辑，请参考相应代码。
 
-异同步通知后，订单验签成功并且状态改变为已支付『CAPTURE』时，会产生一个已支付事件 `Sungmee\LaraPay\Events\Capture`，时间带有 `\Sungmee\LaraPay\Payment $payment` 实例变量 $this->payment。可进行下一步操作，如其它相关业务逻辑流程。
+异同步通知后，订单验签成功并且状态改变为已支付『CAPTURE』时，会产生一个已支付事件 `Sungmee\LaraPay\Events\Capture`，事件带有 `\Sungmee\LaraPay\Payment $payment` 实例变量 $this->payment。可进行下一步操作，如其它相关业务逻辑流程。
 
 ### 运行中指定支付平台
 
