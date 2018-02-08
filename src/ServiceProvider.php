@@ -19,7 +19,7 @@ class ServiceProvider extends LSP
     public function boot()
     {
         $this->mergeConfigFrom(__DIR__.'/../config/payment.php', 'pay');
-        $this->loadRoutesFrom(__DIR__.'/../routes/payment.php');
+        $this->loadRoutesFrom(__DIR__.'/routes.php');
         $this->loadMigrationsFrom(__DIR__.'/../migrations');
     }
 
