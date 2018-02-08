@@ -40,6 +40,6 @@ class ServiceProvider extends LSP
      */
     public function provides()
     {
-        return array('Pay');
+        return ['Pay'];
     }
 }
