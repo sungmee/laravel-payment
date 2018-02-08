@@ -10,11 +10,15 @@ LaraPay 维护一个数据库表 payments，单纯记录支付历史和状态。
 
 ### 安装
 
-在项目根目录的 composer.json 文件 `require` 中加入 `"Sungmee/laravel-payment": "dev-master",`，然后命令行运行 `composer update`。
+命令行到 Laravel 项目根目录然后：
 
-继续在命令行运行 php artisan migrate 进行数据库迁移。
+> composer require sungmee/laravel-api-response
 
-在 .env 中加入实际支付验签数据：
+然后进行数据库迁移：
+
+> php artisan migrate
+
+最后在 .env 中加入实际支付验签数据。
 
 ```php
 // 默认支付平台
