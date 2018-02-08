@@ -1,6 +1,6 @@
 <?php
 
-namespace Sungmee\Payment;
+namespace Sungmee\LaraPay;
 
 use Illuminate\Support\ServiceProvider as LSP;
 
