@@ -25,7 +25,7 @@ class PaymentsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('gateway', 28);
             $table->integer('amount');
-            $table->enum('status', ['Pending', 'Void', 'Refunded', 'Capture', 'Success', 'Fail'])->nullable();
+            $table->enum('status', ['PENDING', 'VOID', 'REFUNDED', 'CAPTURE', 'SUCCESS', 'FAIL'])->nullable();
             $table->json('metas')->nullable();
             $table->timestamps();
             $table->softDeletes();
