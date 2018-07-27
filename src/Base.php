@@ -2,6 +2,8 @@
 
 namespace Sungmee\LaraPay;
 
+use Illuminate\Support\Facades\DB;
+
 abstract class Base
 {
 	/**
@@ -17,6 +19,13 @@ abstract class Base
 	 * @var array
 	 */
 	protected $config;
+
+	/**
+	 * 储存的元数据的键组。
+	 *
+	 * @var array
+	 */
+	protected $metaKeys;
 
     public function __construct()
     {
@@ -192,4 +201,32 @@ abstract class Base
 	{
 		return Payment::destroy($id);
 	}
+
+    /**
+     * xml转数组
+     * @param $xml
+     * @return mixed
+     */
+    public function xmlToArray($xml)
+    {
+        //禁止引用外部xml实体
+		libxml_disable_entity_loader(true);
+		$xml = simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA);
+        return json_decode(json_encode($xml), true);
+    }
+
+    /**
+     * 需要存储的第三方返回的数据
+     * @author Yuki
+     * @param $response
+     * @return array
+     */
+    public function getGatewayMetas($response)
+    {
+		$cb = function ($key) use ($response) {
+			return isset($response[$key]);
+		};
+
+        return array_filter($this->metaKeys, $cb);
+    }
 }

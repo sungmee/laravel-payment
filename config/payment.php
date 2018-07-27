@@ -4,11 +4,47 @@ $appUrl = env('APP_URL');
 
 return [
 	// 默认支付平台
-	'gateway' => env('PAY_GATEWAY', 'example'),
+	'gateway' => env('PAY_GATEWAY', 'Example'),
 
 	// 支付平台商户数据
 	'gateways' => [
-		'example' => []
+		'Example' => [],
+        'CvPay' => [
+            'pay_memberid' => "10002", // 商户号
+            'pay_url' 	   => 'https://www.paycv.com/Pay_Index.html',  // 支付地址
+            'pay_bankcode' => "907", //通道编码
+            'Md5key' 	   => 't4ig5acnpx4fet4zapshjacjd9o4bhbi', // 加密秘钥
+        ],
+        'DinPay' => [
+            'merchant_code'     => '',
+            'interface_version' => 'V3.3',
+            'scanpay_url' 	    => 'https://api.ddbill.com/gateway/api/scanpay',
+            'bank_url' 			=> 'https://pay.ddbill.com/gateway?input_charset=UTF-8',
+            'query_url' 		=> 'https://query.ddbill.com/query',
+            'private_key' 		=> '',
+            'public_key' 		=> '',
+            'dinpay_public_key' => '',
+        ],
+        'WbPay' => [
+            'version' 	  => 'V1.0', // 版本号
+            'merNo' 	  => '8800345000032', // 商户号
+            'pay_url'	  => 'http://df.wanbipay.com/api/index',  // 支付地址
+            'notify_url'  => 'http://laravel.com', // 异步通知地址
+            'private_key' => '/test/8800345000032_m_prv.pem', // 私钥
+            'public_key'  => '/test/8800345000032_mp_pub.pem' // 公钥
+        ],
+        'QdPay' => [
+            'merchantNo' => '',
+            'pay_urls'   => [
+                'weixin_scan' => '微信扫码',
+                'alipay_scan' => '支付宝扫码',
+                'qq_scan'     => 'qq扫码',
+                'jd_scan'     => '京东支付扫码',
+                'union_scan'  => '银联扫码'
+            ],
+        'order_query_url' => '',
+        'private_key'     => ''
+        ]
 	],
 
 	// 用户模型的命名空间
